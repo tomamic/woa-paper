@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.10.31)  15 JUL 2020 18:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.10.31)  15 JUL 2020 19:00
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/simone/Downloads/Conference-LaTeX-template_10-17-19/voice_assistants_in_triage.tex
-(/Users/simone/Downloads/Conference-LaTeX-template_10-17-19/voice_assistants_in_triage.tex
+**/Users/simone/UniPR/Tesi/woa-paper/voice_assistants_in_triage.tex
+(/Users/simone/UniPR/Tesi/woa-paper/voice_assistants_in_triage.tex
 LaTeX2e <2018-12-01>
 (/usr/local/texlive/2019/texmf-dist/tex/latex/IEEEtran/IEEEtran.cls
 Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
@@ -454,7 +454,7 @@ Package: catchfile 2016/05/16 v1.7 Catch the contents of a file (HO)
 )
 runsystem(uname -s > "voice_assistants_in_triage.w18")...executed.
 
- (/Users/simone/Downloads/Conference-LaTeX-template_10-17-19/voice_assistants_in_triage.w18)
+ (/Users/simone/UniPR/Tesi/woa-paper/voice_assistants_in_triage.w18)
 runsystem(rm -- "voice_assistants_in_triage.w18")...executed.
 
 ) (/usr/local/texlive/2019/texmf-dist/tex/generic/xstring/xstring.sty (/usr/local/texlive/2019/texmf-dist/tex/generic/xstring/xstring.tex
@@ -614,7 +614,7 @@ runsystem(which pygmentize && touch voice_assistants_in_triage.aex)...executed.
 
 runsystem(rm voice_assistants_in_triage.aex)...executed.
 
- (/Users/simone/Downloads/Conference-LaTeX-template_10-17-19/voice_assistants_in_triage.aux)
+ (/Users/simone/UniPR/Tesi/woa-paper/voice_assistants_in_triage.aux)
 \openout1 = `voice_assistants_in_triage.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
@@ -676,15 +676,10 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 15.
 LaTeX Info: Redefining \pageref on input line 15.
 LaTeX Info: Redefining \nameref on input line 15.
- (/Users/simone/Downloads/Conference-LaTeX-template_10-17-19/voice_assistants_in_triage.out) (/Users/simone/Downloads/Conference-LaTeX-template_10-17-19/voice_assistants_in_triage.out)
+ (/Users/simone/UniPR/Tesi/woa-paper/voice_assistants_in_triage.out) (/Users/simone/UniPR/Tesi/woa-paper/voice_assistants_in_triage.out)
 \@outlinefile=\write5
 \openout5 = `voice_assistants_in_triage.out'.
 
- [1
-
-{/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
-
-]
 LaTeX Font Info:    Try loading font information for U+msa on input line 51.
  (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -692,7 +687,8 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Try loading font information for U+msb on input line 51.
  (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [2
+) [1{/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+
 
 ]
 LaTeX Font Info:    Try loading font information for OT1+pcr on input line 88.
@@ -703,26 +699,26 @@ LaTeX Font Info:    Font shape `OT1/pcr/m/it' in size <10> not available
 (Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 98.
 \openout3 = `voice_assistants_in_triage.pyg'.
 
- (/Users/simone/Downloads/Conference-LaTeX-template_10-17-19/_minted-voice_assistants_in_triage/default-pyg-prefix.pygstyle) (/Users/simone/Downloads/Conference-LaTeX-template_10-17-19/_minted-voice_assistants_in_triage/default.pygstyle) (/Users/simone/Downloads/Conference-LaTeX-template_10-17-19/_minted-voice_assistants_in_triage/0A1E281C859DD64981D88C7533C2F1CE30CF3464744D5CAA1E5A662979648F59.pygtex [3]
+ (/Users/simone/UniPR/Tesi/woa-paper/_minted-voice_assistants_in_triage/default-pyg-prefix.pygstyle) (/Users/simone/UniPR/Tesi/woa-paper/_minted-voice_assistants_in_triage/default.pygstyle) (/Users/simone/UniPR/Tesi/woa-paper/_minted-voice_assistants_in_triage/0A1E281C859DD64981D88C7533C2F1CE30CF3464744D5CAA1E5A662979648F59.pygtex [2]
 LaTeX Font Info:    Font shape `OT1/pcr/bx/n' in size <10> not available
 (Font)              Font shape `OT1/pcr/b/n' tried instead on input line 3.
 )
 \openout3 = `voice_assistants_in_triage.pyg'.
 
- (/Users/simone/Downloads/Conference-LaTeX-template_10-17-19/_minted-voice_assistants_in_triage/EADBF7522C2848A12476704E84E3BA8ABF3F8B8F59185334E16DEE3AB9C79DC0.pygtex [4])
-<ConfusionMatrix.jpg, id=155, 738.89845pt x 755.0969pt>
+ (/Users/simone/UniPR/Tesi/woa-paper/_minted-voice_assistants_in_triage/EADBF7522C2848A12476704E84E3BA8ABF3F8B8F59185334E16DEE3AB9C79DC0.pygtex [3])
+<ConfusionMatrix.jpg, id=158, 738.89845pt x 755.0969pt>
 File: ConfusionMatrix.jpg Graphic file (type jpg)
 <use ConfusionMatrix.jpg>
 Package pdftex.def Info: ConfusionMatrix.jpg  used on input line 203.
 (pdftex.def)             Requested size: 252.0pt x 257.52455pt.
-<Accuracy.png, id=156, 393.47pt x 186.6975pt>
+<Accuracy.png, id=159, 393.47pt x 186.6975pt>
 File: Accuracy.png Graphic file (type png)
 <use Accuracy.png>
 Package pdftex.def Info: Accuracy.png  used on input line 211.
 (pdftex.def)             Requested size: 252.0pt x 119.57144pt.
 \openout3 = `voice_assistants_in_triage.pyg'.
 
- (/Users/simone/Downloads/Conference-LaTeX-template_10-17-19/_minted-voice_assistants_in_triage/65C10D1180F00FFB9344CAA1063699E830CF3464744D5CAA1E5A662979648F59.pygtex) [5 </Users/simone/Downloads/Conference-LaTeX-template_10-17-19/ConfusionMatrix.jpg> </Users/simone/Downloads/Conference-LaTeX-template_10-17-19/Accuracy.png>]
+ (/Users/simone/UniPR/Tesi/woa-paper/_minted-voice_assistants_in_triage/65C10D1180F00FFB9344CAA1063699E830CF3464744D5CAA1E5A662979648F59.pygtex) [4 </Users/simone/UniPR/Tesi/woa-paper/ConfusionMatrix.jpg> </Users/simone/UniPR/Tesi/woa-paper/Accuracy.png>]
 LaTeX Font Info:    Try loading font information for OMS+ptm on input line 255.
  (/usr/local/texlive/2019/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
@@ -734,7 +730,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 277--278
 []\OT1/ptm/m/n/10 Health Min-is-tery's en-cy-clo-pe-dia scraper:
  []
 
-[6]
+[5]
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -746,32 +742,32 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 287.
-[7
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 295.
+[6
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 287.
- (/Users/simone/Downloads/Conference-LaTeX-template_10-17-19/voice_assistants_in_triage.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 287.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 287.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 295.
+ (/Users/simone/UniPR/Tesi/woa-paper/voice_assistants_in_triage.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 295.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 295.
 Package rerunfilecheck Info: File `voice_assistants_in_triage.out' has not changed.
 (rerunfilecheck)             Checksum: 9A94B5270484A3A17E1C4EA933B1FD1A;1772.
 runsystem(rm voice_assistants_in_triage.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 11193 strings out of 492616
- 186139 string characters out of 6129480
- 329891 words of memory out of 5000000
- 14876 multiletter control sequences out of 15000+600000
+ 11208 strings out of 492616
+ 185711 string characters out of 6129480
+ 330143 words of memory out of 5000000
+ 14884 multiletter control sequences out of 15000+600000
  37460 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,8n,35p,1281b,544s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 39i,8n,35p,1275b,544s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on /Users/simone/Downloads/Conference-LaTeX-template_10-17-19/voice_assistants_in_triage.pdf (7 pages, 288350 bytes).
+Output written on /Users/simone/UniPR/Tesi/woa-paper/voice_assistants_in_triage.pdf (6 pages, 289559 bytes).
 PDF statistics:
- 232 PDF objects out of 1000 (max. 8388607)
- 206 compressed objects within 3 object streams
- 42 named destinations out of 1000 (max. 500000)
+ 249 PDF objects out of 1000 (max. 8388607)
+ 224 compressed objects within 3 object streams
+ 49 named destinations out of 1000 (max. 500000)
  235 words of extra memory for PDF output out of 10000 (max. 10000000)
 

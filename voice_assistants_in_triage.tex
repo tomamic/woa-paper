@@ -12,7 +12,7 @@
 \usepackage{tabularx}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
-\begin{document}s
+\begin{document}
 
 \title{Voice assistants in hospital triage operations}
 
@@ -59,7 +59,7 @@ While the medical research progressed heavily in the last years, the IT infrastr
 \section{Voice Assistants and Triage}
 \label{sec:voice-assistants-and-triage}
 \subsection{Voice Assistants}
-Voice assistants are software capable of interpreting human dialogs and reply through synthetized voices. The most famous examples are Amazon Alexa, Apple Siri, Google Assistant\dots The assistant waits for a \textit{wake word}, hears the request, transforms it into text, interprets it and \textit{speaks} a reply through a TTS engine. Voice assistants are rarely used in hospitals, but a report from \textbf{Voicebot} \cite{b1}, an organization supporting the spread of these technologies, stated that while just 7.5\% of the interviewed people had used a voice assistant in healthcare, 52\% would like to do so. Surprisingly, this includes even the higher age groups.
+Voice assistants are software capable of interpreting human dialogs and reply through synthetized voices. The most famous examples are Amazon Alexa, Apple Siri, Google Assistant\dots The assistant waits for a \textit{wake word}, hears the request, transforms it into text, interprets it and \textit{speaks} a reply through a TTS engine. Voice assistants are rarely used in hospitals, but a report from \textbf{Voicebot} \cite{voicebot}, an organization supporting the spread of these technologies, stated that while just 7.5\% of the interviewed people had used a voice assistant in healthcare, 52\% would like to do so. Surprisingly, this includes even the higher age groups.
 \subsection{Triage}
 Triage is the process in which the patients requesting help in the ER are catalogued by their urgency and their priority. The term was born during wars and maxi-emergencies, but similar operations are done everyday, in hospitals all around the world. The most famous \textit{methods} are the \textbf{START} and the \textbf{CESIRA}. The italian health ministery never defined a standard, but generally the patients get divided in 4 groups: red(critical, immediate access), yellow (life threatening, access within 15 minutes), green(access within 60-90 minutes), white. The triage produces a report containing the patient's anagraphic data, the symptoms, the urgency, date and time of access to the hospital.
 \subsection{Triage and COVID19}
@@ -70,10 +70,10 @@ The COVID19 global pandemic changed the triage procedures heavily: the key is ke
 \subsection{Why Mycroft?}
 The most popular voice assistants, like Google Assistant or Amazon Alexa, are proprietary software made by corporations. While this may be good for the usability and functionality, it lacks a critical feature: privacy. Since health data is tremendously precious, we need to protect it, and doing that while using a proprietary voice assistant is kind of impossible. Choosing an open source alternative allows us to guarantee \textbf{data privacy}, \textbf{extensibility}, \textbf{customizability}, and last but not least, \textbf{a free tool that every hospital could use}.
 \subsection{The Mycroft project}
-Mycroft was born to provide an open source voice assistant to users, developers, researchers. It was initially funded with a crowdfunding in 2015, and obtained great success. The project is based on a subset of tools built by Mycroft, Inc and other companies:
+Mycroft was born to provide an open source voice assistant to users, developers, researchers.\cite{mycroft} It was initially funded with a crowdfunding in 2015, and obtained great success. The project is based on a subset of tools built by Mycroft, Inc and other companies:
 \begin{itemize}
-    \item Precise, a wake word listener based on a \textit{Gated Recurring Unit}, a recurrent neural network. It is trained over audio tracks, not text, making the software compatible with different accents, dialects, languages.
-    \item The Speech To Text component isn't enough stable yet. Because of this, this project uses the Google STT engine. The requests are bucketed and proxied through Mycroft's servers to provide a privacy layer.
+    \item Precise, a wake word listener based on a \textit{Gated Recurring Unit}, a recurrent neural network similar to an LSTM with a forget gate \cite{GRU}. It is trained over audio tracks, not text, making the software compatible with different accents, dialects, languages.
+    \item The Speech To Text component isn't enough stable yet. Because of this, this project uses the Google STT engine \cite{google-stt}. The requests are bucketed and proxied through Mycroft's servers to provide a privacy layer.
     \item The intent interpretation is based on two tools: \textbf{Padatious} and \textbf{Adapt}. While Adapt is based on keywords recognition, Padatious is based on a neural network trained over full phrases. Padatious can even extract entities from the intent, like a city name or a disease.
     \item While Mycroft built a Text To Speech engine, \textbf{Mimic}, it isn't currently available in italian. Because of this, we're using the Google STT engine, with proxied requests.
     \item A graphical user interface was built over the Qt library using KDE Plasmoids, graphical components available in the KDE Plasma desktop environment.
@@ -171,7 +171,7 @@ A conversation with the bot may be the following:
 \label{sec:fallback}
 A problem now arises: what if the patient has a disease which was not covered in the previous symptoms? The intent would not be caught. Sadly, diseases are so vast and numerous that it would be impossible to hardcode them: we need a \textit{statistical} approach. The target is now building a text classifier that is able to classify the patient's declaration to a symptomatology or at least an hospital ward.
 \subsection{Dataset}
-Since the medical data is fortunately well protected by privacy laws all around the world, finding medical datasets is not easy. However, creating a dataset from scratch is still possible: this is exactly what \textbf{Appen}, an australian start up, did. The dataset used in this project \cite{b2} contains audio snippets, transcriptions and symptomatologies of patients requesting help to nurses. Since the Mycroft's STT engine handles the conversion to text, we only need to train a classifier that maps patient requests to symptom types. An example of this dataset's entries may be:
+Since the medical data is fortunately well protected by privacy laws all around the world, finding medical datasets is not easy. However, creating a dataset from scratch is still possible: this is exactly what \textbf{Appen}, an australian start up, did. The dataset used in this project \cite{dataset} contains audio snippets, transcriptions and symptomatologies of patients requesting help to nurses. Since the Mycroft's STT engine handles the conversion to text, we only need to train a classifier that maps patient requests to symptom types. An example of this dataset's entries may be:
 \begin{itemize}
     \item \textbf{Phrase}: \textit{My son had his lip pierced and it is swollen and the skin inside
               on his lip is grey and looks infected.}
@@ -197,7 +197,7 @@ When Google Translate can't recognize a phrase's meaning, it skips it. The \text
 \subsection{Classifier training}
 Having an italian dataset, we can now proceed with the classifier's training. To do so, using the \textbf{fastai} library simplifies things: it provides the \texttt{text.learner} class, which is able to train a model and export it. This enables us to train the model a single time, and simply import it into the voice assistant.
 \subsection{Data preparation and training}
-We can now import our dataset in a Jupyter notebook, check for NaNs, and create the \texttt{text.learner} with fastai. For the project, we used the AWD-LSTM structure, a recurrent neural network which has really high performance on text processing. This type of network has a \textbf{Long Short Term Memory}\cite{b3}, which enables the training to find patterns in distant parts of the text, \textbf{Average SGD} and \textbf{Dropconnect}, a dropout that drops weights instead of activations. We can now train the network and check the confusion matrix:
+We can now import our dataset in a Jupyter notebook, check for NaNs, and create the \texttt{text.learner} with fastai. For the project, we used the AWD-LSTM structure, a recurrent neural network which has really high performance on text processing. This type of network has a \textbf{Long Short Term Memory}\cite{lstm}, which enables the training to find patterns in distant parts of the text, \textbf{Average SGD} and \textbf{Dropconnect}, a dropout that drops weights instead of activations \cite{awd-lstm}. We can now train the network and check the confusion matrix:
 \begin{figure}[H]
     \begin{center}
         \includegraphics[width=\columnwidth]{ConfusionMatrix.jpg}
@@ -250,7 +250,7 @@ An example of conversation may be:
 \label{sec:information-retrieval}
 This tool's use cases might not be limited to triage and helping in emergencies. In fact, a patient could just want to know some medical informations about a particular disease without having to talk to a doctor.
 \subsection{Data source}
-It is obvious that the data source we're looking for has to be authoritative: Wikipedia is not reliable enough. Luckily, the italian health ministery published a medical encyclopedia on their website. These informations are complete, reliable and interesting. To be able to use them, we can scrape the website using tools like \textbf{Selenium}. Selenium is a framework used to test web applications; it provides a simple interface to automate a web browser. We could use two approaches for the data collection: an API approach, which downloads the informations basing on queries, or a periodic one. The first one is possible thanks to the Python \texttt{http.server} library, in which we can define a handler for GET requests. This will look for the query on the encyclopedia, download the page, insert the data into a JSON and return it. Since the informations on the website rarely vary, we can download them periodically and keep them saved. By defining a script that iterates over every item in the encyclopedia, we can download all the needed informations. Using \textbf{cron}, a job scheduler for Linux, it's possible to automatically download the data periodically.
+It is obvious that the data source we're looking for has to be authoritative: Wikipedia is not reliable enough. Luckily, the italian health ministery published a medical encyclopedia on their website. These informations are complete, reliable and interesting. To be able to use them, we can scrape the website using tools like \textbf{Selenium}. Selenium is a framework used to test web applications; it provides a simple interface to automate a web browser\cite{selenium}. We could use two approaches for the data collection: an API approach, which downloads the informations basing on queries, or a periodic one. The first one is possible thanks to the Python \texttt{http.server} library, in which we can define a handler for GET requests. This will look for the query on the encyclopedia, download the page, insert the data into a JSON and return it. Since the informations on the website rarely vary, we can download them periodically and keep them saved. By defining a script that iterates over every item in the encyclopedia, we can download all the needed informations. Using \textbf{cron}, a job scheduler for Linux, it's possible to automatically download the data periodically.
 \subsection{Integration of the data into the voice assistant}
 Having the data, we can now define a new intent in the voice assistant to request informations. Padatious' entity extraction simplifies this: we can train it with phrases like \textit{"Tell me something about \{disease\}"}, creating a \textit{disease} entity containing all the known diseases. These are not strictly exact matches: we're looking for the best match, so that if the user asks something about \textit{tumor in the lung}, \textit{lung tumor} is matched. After matching the name, the assistant checks the known data, like \textit{prevention, cure, therapy, symptoms}, and asks the patient to choose.
 An example of conversation might be the following:
@@ -267,7 +267,7 @@ An example of conversation might be the following:
 Since this voice assistant could enhance the hospitals' workflow all around the world, it has built to be as cheap and easy as possible. The TTS and STT engines are computed in cloud: this removes the most computationally heavy module from our responsibility. The intent parser, Padatious, needs an ultra light training just once every start of the bot. Even if the computer is not powerful, it requires just a few minutes. The fastai training is computed in cloud: the model gets exported and used without any further training. This doesn't require any computational power. The only real requirement is defined by the GUI: since it is built on KDE Plasmoids, the desktop environment has to be KDE Plasma. Mycroft recommends using KDE Neon, a Ubuntu LTS distribution with KDE Plasma installed. The devices that support this project are, therefore, almost infinite: even a simple Raspberry Pi or an old computer can run Mycroft.
 \section{Conclusions}
 \label{sec:conclusions}
-The global pandemic the world had to bear with has highlighted how hospitals, in the last years, have been forgotten by politicians, people, nations. In the last 20 years, in Italy, the number of institutes diminished from 311 thousands to 191 thousands, while the public spending was raised from 60 miliards to 112\cite{b4}. With the aid of computers, health workers could get some relief and concentrate on what matters more: curing people. Voice assistants could \textit{flatten} the
+The global pandemic the world had to bear with has highlighted how hospitals, in the last years, have been forgotten by politicians, people, nations. In the last 20 years, in Italy, the number of institutes diminished from 311 thousands to 191 thousands, while the public spending was raised from 60 miliards to 112\cite{ospedali-agi}. With the aid of computers, health workers could get some relief and concentrate on what matters more: curing people. Voice assistants could \textit{flatten} the
 \textit{digital divide}, being easy to use for everyone, including the elder. Translation of the assistant to multiple languages could be an incredible tool for immigrants, tourists and travelers who can't speak the national language. Right now, the most urgent improvement to make is finding or creating a better dataset: if the classifier worked better, we could skip the hardcoding of the most common symptoms and just leave one skill. The ultra low cost of this project's requirements makes it possible for every hospital in the world to install a tool like this. The open source design (all the source code is licensed with a GPL-3.0 license) guarantees freedom, privacy, expansibility, customizability, and, last but not least, the possibility of saving lives without having to pay a price.
 \section{Source code}
 Every single line of code of this project is open source and available on GitHub:
@@ -278,10 +278,18 @@ Every single line of code of this project is open source and available on GitHub
 \end{itemize}
 
 \begin{thebibliography}{00}
-    \bibitem{b1} Voicebot - Orbita, "Voice Assistant Consumer Adoption in Healthcare", In: (ott. 2019).
-    \bibitem{b2} Paul Mooney - Appen, "Medical Speech, Transcription, and Intent", 2019.
-    \bibitem{b3} Sepp Hochreiter e Jürgen Schmidhuber, "Long short-term memory", In: Neural computation 9,8 (1997), pp. 1735–1780.
-    \bibitem{b4} Agenzia Giornalistica Italia, "La riduzione di ospedali e posti letto negli ultimi 10 anni", In: (mar. 2020)
+    \bibitem{voicebot} Voicebot - Orbita, "Voice Assistant Consumer Adoption in Healthcare", In: (ott. 2019).
+    \bibitem{triage} Ministero Della Salute, \href{http://www.salute.gov.it/imgs/C_17_notizie_3849_listaFile_itemName_1_file.pdf}{"Linee di indirizzo nazionali sul triage interospedaliero"},
+    \bibitem{mycroft} Rebecca Harrington, \href{https://www.popsci.com/ultimate-diy-ai/}{"Customize An Open-Source HAL For Your Home"}, 2016
+    \bibitem{GRU} Felix Gers; Jürgen Schmidhuber; Fred Cummins (1999). "Learning to Forget: Continual Prediction with LSTM". Proc. ICANN'99, IEE, London. 1999: 850–855
+    \bibitem{google-stt} Google, \href{https://cloud.google.com/speech-to-text}{Speech-To-Text}
+    \bibitem{qt} Qt, \href{https://www.qt.io/}{Official website}
+    \bibitem{dataset} Paul Mooney - Appen, "Medical Speech, Transcription, and Intent", 2019.
+    \bibitem{fastai} fastai, \href{https://docs.fast.ai/}{Official docs}
+    \bibitem{awd-lstm} Stephen Merity; Nitish Shirish Keskar; Richard Socher, Regularizing and Optimizing LSTM Language Models, 2017
+    \bibitem{lstm} Sepp Hochreiter e Jürgen Schmidhuber, "Long short-term memory", In: Neural computation 9,8 (1997), pp. 1735–1780.
+    \bibitem{selenium} Selenium, \href{https://github.com/SeleniumHQ/selenium}{Official repository}
+    \bibitem{ospedali-agi} Agenzia Giornalistica Italia, "La riduzione di ospedali e posti letto negli ultimi 10 anni", In: (mar. 2020)
 \end{thebibliography}
 
 \end{document}
