@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{p}{\PYGZob{}}
+    \PYG{n+nt}{\PYGZdq{}name\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}Dolore al collo\PYGZdq{}}\PYG{p}{,}
+    \PYG{n+nt}{\PYGZdq{}emoji\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}[removed]\PYGZdq{}}\PYG{p}{,}
+    \PYG{n+nt}{\PYGZdq{}code\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}yellow\PYGZdq{}}\PYG{p}{,}
+    \PYG{n+nt}{\PYGZdq{}covid\PYGZdq{}}\PYG{p}{:} \PYG{k+kc}{false}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

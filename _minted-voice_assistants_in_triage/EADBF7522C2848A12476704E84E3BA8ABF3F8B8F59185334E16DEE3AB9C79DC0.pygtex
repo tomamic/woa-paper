@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{for} \PYG{n}{index}\PYG{p}{,} \PYG{n}{row} \PYG{o+ow}{in} \PYG{n}{data}\PYG{o}{.}\PYG{n}{iterrows}\PYG{p}{():}
+    \PYG{n}{phrase} \PYG{o}{=} \PYG{n}{translator}\PYG{o}{.}\PYG{n}{translate}\PYG{p}{(}
+        \PYG{n}{row}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}phrase\PYGZdq{}}\PYG{p}{],}
+        \PYG{n}{dest}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}it\PYGZdq{}}\PYG{p}{)}\PYG{o}{.}\PYG{n}{text}
+    \PYG{n}{prompt} \PYG{o}{=} \PYG{n}{translator}\PYG{o}{.}\PYG{n}{translate}\PYG{p}{(}
+        \PYG{n}{row}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}prompt\PYGZdq{}}\PYG{p}{],}
+        \PYG{n}{dest}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}it\PYGZdq{}}\PYG{p}{)}\PYG{o}{.}\PYG{n}{text}
+    \PYG{k}{if} \PYG{n}{translator}\PYG{o}{.}\PYG{n}{detect}\PYG{p}{(}\PYG{n}{phrase}\PYG{p}{)}\PYG{o}{.}\PYG{n}{lang} \PYG{o}{==} \PYG{l+s+s2}{\PYGZdq{}it\PYGZdq{}}
+     \PYG{o+ow}{and} \PYG{n}{translator}\PYG{o}{.}\PYG{n}{detect}\PYG{p}{(}\PYG{n}{prompt}\PYG{p}{)}\PYG{o}{.}\PYG{n}{lang} \PYG{o}{==} \PYG{l+s+s2}{\PYGZdq{}it\PYGZdq{}}\PYG{p}{:}
+        \PYG{n}{translated\PYGZus{}data}\PYG{o}{.}\PYG{n}{at}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}phrase\PYGZdq{}}\PYG{p}{]} \PYG{o}{=} \PYG{n}{phrase}
+        \PYG{n}{translated\PYGZus{}data}\PYG{o}{.}\PYG{n}{at}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}prompt\PYGZdq{}}\PYG{p}{]} \PYG{o}{=} \PYG{n}{prompt}
+        \PYG{n}{i} \PYG{o}{=} \PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}
+\end{Verbatim}

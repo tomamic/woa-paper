@@ -1,0 +1,20 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{p}{\PYGZob{}}
+    \PYG{n+nt}{\PYGZdq{}can\PYGZus{}talk\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}yes\PYGZdq{}}\PYG{p}{,}
+    \PYG{n+nt}{\PYGZdq{}main\PYGZus{}symptom\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}breathing\PYGZdq{}}\PYG{p}{,}
+    \PYG{n+nt}{\PYGZdq{}code\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}red\PYGZdq{}}\PYG{p}{,}
+    \PYG{n+nt}{\PYGZdq{}fever\PYGZdq{}}\PYG{p}{:} \PYG{l+m+mf}{38.7}\PYG{p}{,}
+    \PYG{n+nt}{\PYGZdq{}has\PYGZus{}sore\PYGZus{}throat\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}yes\PYGZdq{}}\PYG{p}{,}
+    \PYG{n+nt}{\PYGZdq{}has\PYGZus{}cold\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}no\PYGZdq{}}\PYG{p}{,}
+    \PYG{n+nt}{\PYGZdq{}has\PYGZus{}breathing\PYGZus{}difficulties\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}yes\PYGZdq{}}\PYG{p}{,}
+    \PYG{n+nt}{\PYGZdq{}has\PYGZus{}cough\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}yes\PYGZdq{}}\PYG{p}{,}
+    \PYG{n+nt}{\PYGZdq{}has\PYGZus{}had\PYGZus{}contacts\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}yes\PYGZdq{}}\PYG{p}{,}
+    \PYG{n+nt}{\PYGZdq{}misses\PYGZus{}taste\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}yes\PYGZdq{}}\PYG{p}{,}
+    \PYG{n+nt}{\PYGZdq{}covid\PYGZus{}score\PYGZdq{}}\PYG{p}{:} \PYG{l+m+mf}{22.6304}\PYG{p}{,}
+    \PYG{n+nt}{\PYGZdq{}symptom\PYGZus{}declaration\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}ho il fiatone\PYGZdq{}}\PYG{p}{,}
+    \PYG{n+nt}{\PYGZdq{}age\PYGZdq{}}\PYG{p}{:} \PYG{l+m+mi}{21}\PYG{p}{,}
+    \PYG{n+nt}{\PYGZdq{}other\PYGZus{}symptoms\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}ho mal di testa\PYGZdq{}}\PYG{p}{,}
+    \PYG{n+nt}{\PYGZdq{}pain\PYGZus{}index\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}8\PYGZdq{}}\PYG{p}{,}
+    \PYG{n+nt}{\PYGZdq{}full\PYGZus{}name\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}marco rossi\PYGZdq{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
