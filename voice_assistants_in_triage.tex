@@ -61,10 +61,10 @@ While the medical research progressed heavily in the last years, the involved IT
 \subsection{Voice Assistants}
 Voice assistants are agents capable of interpreting human dialogs and reply through synthetized voices. The most famous examples are Amazon Alexa, Apple Siri, Google Assistant\dots The assistant waits for a \textit{wake word}, hears the request, transforms it into text, interprets it and \textit{speaks} a reply through a TTS engine. Voice assistants are rarely used in hospitals, but a report from \textbf{Voicebot} \cite{voicebot}, an organization supporting the spread of these technologies, stated that while just 7.5\% of the interviewed people had used a voice assistant in healthcare, 52\% would like to do so. Surprisingly, this includes even the higher age groups.
 \subsection{Triage}
-Triage is the process in which the patients requesting help in the ER are catalogued by their urgency and their priority. The term was born during wars and maxi-emergencies, but similar operations are done everyday, in hospitals all around the world. The most famous \textit{methods} are the \textbf{START} and the \textbf{CESIRA}. The italian health ministery never defined a standard, but generally the patients get divided in 4 groups: red(critical, immediate access), yellow (life threatening, access within 15 minutes), green(access within 60-90 minutes), white. The triage produces a report containing the patient's anagraphic data, the symptoms, the urgency, date and time of access to the hospital.
+Triage is the process in which the patients requesting help in the ER are catalogued by their urgency and their priority \cite{bazyar2020principle}. The term was born during wars and maxi-emergencies, but similar operations are done everyday, in hospitals all around the world. The most famous \textit{methods} are the \textbf{START} and the \textbf{CESIRA}. The italian health ministery never defined a standard, but generally the patients get divided in 4 groups: red(critical, immediate access), yellow (life threatening, access within 15 minutes), green(access within 60-90 minutes), white. The triage produces a report containing the patient's anagraphic data, the symptoms, the urgency, date and time of access to the hospital.
 \subsection{Triage and COVID19}
 \label{COVID}
-The COVID19 global pandemic changed the triage procedures heavily: the key is keeping patients with COVID19-compatible symptoms far from the other ones. Usually, this involves the building of \textit{pre-triage} tents, where patients get tested. Integrating a fast COVID19 diagnostic in the agent could reduce the risk of infections.
+The COVID19 global pandemic changed the triage procedures heavily: the key is keeping patients with COVID19-compatible symptoms far from the other ones\cite{10.1093/jamia/ocaa01}. Usually, this involves the building of \textit{pre-triage} tents, where patients get tested. Integrating a fast COVID19 diagnostic in the agent could reduce the risk of infections.
 \section{Mycroft}
 \label{sec:mycroft}
 \subsection{Why Mycroft?}
@@ -98,7 +98,7 @@ All the collected data gets saved to a Python dictionary to be exported in JSON.
 \subsection{The \texttt{covid\_symptom} decorator}
 The COVID19 global pandemic strongly changed how people behave, interact, get cured. As already discussed in section \ref{COVID}, hospitals need to keep COVID19-compatible patients separate from the other ones, and from each other. Automating the COVID19 diagnostic may be crucial now. Therefore, the voice assistant needs to check if the patient may be infected and potentially contagious.
 Because of this, all of the symptoms that are slightly connected with COVID19 trigger a diagnostic handled by the \texttt{covid\_symptom} decorator.
-This asks the patient for known symptoms, and multiplies a score (by default equal to $1$) by their \textit{multiplier}:
+This asks the patient for known symptoms\cite{paginemediche}, and multiplies a score (by default equal to $1$) by their \textit{multiplier}:
 \begin{itemize}
     \item \textbf{Fever}: multiplied by $2.0$
     \item \textbf{Sore throat}: multiplied by $1.3$
@@ -280,6 +280,9 @@ Every single line of code of this project is open source and available on GitHub
 \begin{thebibliography}{00}
     \bibitem{voicebot} Voicebot - Orbita, "Voice Assistant Consumer Adoption in Healthcare", In: (ott. 2019).
     \bibitem{triage} Ministero Della Salute, \href{http://www.salute.gov.it/imgs/C_17_notizie_3849_listaFile_itemName_1_file.pdf}{"Linee di indirizzo nazionali sul triage interospedaliero"},
+    \bibitem{bazyar2020principle} The principles of triage in emergencies and disasters: a systematic review,Bazyar, Jafar and Farrokhi, Mehrdad and Salari, Amir and Khankeh, Hamid Reza,Prehosp Disaster Med,6,1--9,2020
+    \bibitem{10.1093/jamia/ocaa01} Judson, Timothy J and Odisho, Anobel Y and Neinstein, Aaron B and Chao, Jessica and Williams, Aimee and Miller, Christopher and Moriarty, Tim and Gleason, Nathaniel and Intinarelli, Gina and Gonzales, Ralph, \href{https://doi.org/10.1093/jamia/ocaa051}{Rapid design and implementation of an integrated patient self-triage and self-scheduling tool for COVID-19},Journal of the American Medical Informatics Association,27,6,860-866,2020,05,1527-974X,10.1093/jamia/ocaa051
+    \bibitem{paginemediche} Pagine Mediche, \href{https://www.paginemediche.it/coronavirus}{Nuovo Coronavirus Covid-19}
     \bibitem{mycroft} Rebecca Harrington, \href{https://www.popsci.com/ultimate-diy-ai/}{"Customize An Open-Source HAL For Your Home"}, 2016
     \bibitem{GRU} Felix Gers; Jürgen Schmidhuber; Fred Cummins (1999). "Learning to Forget: Continual Prediction with LSTM". Proc. ICANN'99, IEE, London. 1999: 850–855
     \bibitem{google-stt} Google, \href{https://cloud.google.com/speech-to-text}{Speech-To-Text}
