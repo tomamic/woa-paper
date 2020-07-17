@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.10.31)  15 JUL 2020 19:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.10.31)  17 JUL 2020 12:47
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -764,7 +764,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  39i,8n,35p,1275b,544s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on /Users/simone/UniPR/Tesi/woa-paper/voice_assistants_in_triage.pdf (6 pages, 289559 bytes).
+Output written on /Users/simone/UniPR/Tesi/woa-paper/voice_assistants_in_triage.pdf (6 pages, 289503 bytes).
 PDF statistics:
  249 PDF objects out of 1000 (max. 8388607)
  224 compressed objects within 3 object streams
