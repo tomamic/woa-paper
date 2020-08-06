@@ -16,23 +16,18 @@
 
 \title{Voice assistants in hospital triage operations}
 
-\author{\IEEEauthorblockN{Montali Simone}
-    \IEEEauthorblockA{\textit{Dipartimento di Ingegneria e Architettura} \\
-        \textit{Università di Parma}\\
-        Parma, Italy \\
-        simone.montali1@studenti.unipr.it}
+\author{
+    \IEEEauthorblockN{Simone Montali}
+    \IEEEauthorblockA{University of Parma, Italy}
     \and
-    \IEEEauthorblockN{Mordonini Monica}
-    \IEEEauthorblockA{\textit{Dipartimento di Ingegneria e Architettura} \\
-        \textit{Università di Parma}\\
-        Parma, Italy \\
-        monica.mordonini@unipr.it}
+    \IEEEauthorblockN{Gianfranco Lombardo}
+    \IEEEauthorblockA{University of Parma, Italy}
     \and
-    \IEEEauthorblockN{Tomaiuolo Michele}
-    \IEEEauthorblockA{\textit{Dipartimento di Ingegneria e Architettura} \\
-        \textit{Università di Parma}\\
-        Parma, Italy \\
-        michele.tomaiuolo@unipr.it}
+    \IEEEauthorblockN{Monica Mordonini}
+    \IEEEauthorblockA{University of Parma, Italy}
+    \and
+    \IEEEauthorblockN{Michele Tomaiuolo}
+    \IEEEauthorblockA{University of Parma, Italy}
 }
 
 \maketitle
@@ -126,7 +121,7 @@ All of the collected and infered data gets exported to a JSON file. Using a stan
     "has_had_contacts": "yes",
     "misses_taste": "yes",
     "covid_score": 22.6304,
-    "symptom_declaration": "ho il fiatone",
+    "symptom_declaration": "ho fiatone",
     "age": 21,
     "other_symptoms": "ho mal di testa", 
     "pain_index": "8",
@@ -178,19 +173,21 @@ Since the medical data is fortunately well protected by privacy laws all around 
     \item \textbf{Prompt}: \textit{Infected wound}
 \end{itemize}
 \subsection{Dataset translation}
-Since the voice assistant was mainly born for italian users, we need to translate the dataset to italian. Using Google Translate's APIs would be easy but costly. We could use a scraper to query Google Translate's webpage, but that would be slow. Fortunately, third party Python modules have been made: \texttt{googletrans} is the most famous. Using it, we were able to translate the dataset with a simple script.
+Since the voice assistant was mainly born for italian users, we need to translate the dataset to italian. In fact, the approach of creating an Italian dataset from scratch\cite{lombardo-mtaa,lombardo-lnicst} would be impractical in this case. Using Google Translate's APIs would be easy but costly. We could use a scraper to query Google Translate's webpage, but that would be slow. Fortunately, third party Python modules have been made: \texttt{googletrans} is the most famous. Using it, we were able to translate the dataset with a simple script.
 \begin{minted}[]{python}
+t = translator
 for index, row in data.iterrows():
     phrase = translator.translate(
         row["phrase"], 
         dest="it").text
-    prompt = translator.translate(
+    prompt = t.translate(
         row["prompt"],
         dest="it").text
-    if translator.detect(phrase).lang == "it"
-     and translator.detect(prompt).lang == "it":
-        translated_data.at[i, "phrase"] = phrase 
-        translated_data.at[i, "prompt"] = prompt 
+    if (t.detect(phrase).lang == "it" and
+        t.detect(prompt).lang == "it"):
+        td = translated_data
+        td.at[i, "phrase"] = phrase 
+        td.at[i, "prompt"] = prompt 
         i = i+1
 \end{minted}
 When Google Translate can't recognize a phrase's meaning, it skips it. The \texttt{translator} object, besides translating things, can even detect languages. This allows us to do a little workaround: if the detected language isn't italian in both the phrase and the symptomatology, the entry is skipped. This reduced the dataset from 8000 entries to almost 2000.
@@ -198,13 +195,13 @@ When Google Translate can't recognize a phrase's meaning, it skips it. The \text
 Having an italian dataset, we can now proceed with the classifier's training. To do so, using the \textbf{fastai} library simplifies things: it provides the \texttt{text.learner} class, which is able to train a model and export it. This enables us to train the model a single time, and simply import it into the voice assistant.
 \subsection{Data preparation and training}
 We can now import our dataset in a Jupyter notebook, check for NaNs, and create the \texttt{text.learner} with fastai. For the project, we used the AWD-LSTM structure, a recurrent neural network which has really high performance on text processing. This type of network has a \textbf{Long Short Term Memory}\cite{lstm}, which enables the training to find patterns in distant parts of the text, \textbf{Average SGD} and \textbf{Dropconnect}, a dropout that drops weights instead of activations \cite{awd-lstm}. We can now train the network and check the confusion matrix:
-\begin{figure}[H]
+\begin{figure*}[!ht]
     \begin{center}
-        \includegraphics[width=\columnwidth]{ConfusionMatrix.jpg}
+        \includegraphics[width=0.95\textwidth]{ConfusionMatrix.jpg}
     \end{center}
     \caption{Confusion Matrix}
     \label{fig:confusion-matrix}
-\end{figure}
+\end{figure*}
 While it isn't perfect, the diagonal in the matrix shows that \textbf{the model was trained correctly}. Talking about accuracy, the model reached \textbf{more than 60\%}:
 \begin{figure}[H]
     \begin{center}
@@ -290,6 +287,8 @@ Every single line of code of this project is open source and available on GitHub
     \bibitem{dataset} Paul Mooney - Appen, "Medical Speech, Transcription, and Intent", 2019.
     \bibitem{fastai} fastai, \href{https://docs.fast.ai/}{Official docs}
     \bibitem{awd-lstm} Stephen Merity; Nitish Shirish Keskar; Richard Socher, Regularizing and Optimizing LSTM Language Models, 2017
+    \bibitem{lombardo-mtaa} Gianfranco Lombardo et al., "A combined approach for the analysis of support groups on Facebook - The case of patients of hidradenitis suppurativa", In: Multimedia Tools and Applications, vol. 78, issue 3 (2019), pp. 3321-3339. DOI: 10.1007/s11042-018-6512-5 
+    \bibitem{lombardo-lnicst} Gianfranco Lombardo et al., "Dynamics of Emotions and Relations in a Facebook Group of Patients with Hidradenitis Suppurativa", In: Lecture Notes of the Institute for Computer Sciences, Social-Informatics and Telecommunications Engineering, LNICST vol. 233 (2018), pp. 269-278. DOI: 10.1007/978-3-319-76111-4\_27 
     \bibitem{lstm} Sepp Hochreiter e Jürgen Schmidhuber, "Long short-term memory", In: Neural computation 9,8 (1997), pp. 1735–1780.
     \bibitem{selenium} Selenium, \href{https://github.com/SeleniumHQ/selenium}{Official repository}
     \bibitem{ospedali-agi} Agenzia Giornalistica Italia, "La riduzione di ospedali e posti letto negli ultimi 10 anni", In: (mar. 2020)
